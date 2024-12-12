@@ -5,7 +5,7 @@ import { Table, TableBody, TableCell, TableHead, TableRow, TableContainer, Paper
 import { DaysOfTheMonth, Projects, Timesheet } from './timesheet.extra';
 import { stickyCellStyle } from './timesheet.styles';
 import { TimesheetRow } from './timesheetRow';
-import { Random, sleep } from '../util';
+import { Random, sleep } from './../util';
 
 
 class UIState {
