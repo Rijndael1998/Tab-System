@@ -3,7 +3,7 @@
 import { Box, TableCell, TextField } from "@mui/material";
 import { forwardRef } from "react";
 
-export type TabInputProps = {
+export type TabInputBalanceProps = {
     disabled: boolean,
     value: number,
     name: string,
@@ -11,8 +11,8 @@ export type TabInputProps = {
 
 const defaultStyle = { minWidth: "6em" };
 
-export const TabInput = forwardRef<HTMLInputElement, TabInputProps>(
-    ({ disabled, value, name }: TabInputProps, ref) => <>
+export const TabBalanceInput = forwardRef<HTMLInputElement, TabInputBalanceProps>(
+    ({ disabled, value, name }: TabInputBalanceProps, ref) => <>
         <TableCell sx={{ px: "0.25em" }}>
             {
                 disabled ? <Box sx={defaultStyle} /> : <TextField
@@ -21,6 +21,28 @@ export const TabInput = forwardRef<HTMLInputElement, TabInputProps>(
                     type="number"
                     defaultValue={value.toFixed(2)}
                     slotProps={{htmlInput: { step: 0.50 }}}
+                    sx={defaultStyle}
+                    data-name={name}
+                />
+            }
+        </TableCell>
+    </>);
+
+export type TabInputNameProps = {
+    disabled: boolean,
+    value: string,
+    name: string,
+}
+
+export const TabNameInput = forwardRef<HTMLInputElement, TabInputNameProps>(
+    ({ disabled, value, name }: TabInputNameProps, ref) => <>
+        <TableCell sx={{ px: "0.25em" }}>
+            {
+                disabled ? <Box sx={defaultStyle} /> : <TextField
+                    inputRef={ref}
+                    disabled={disabled}
+                    type="text"
+                    defaultValue={value}
                     sx={defaultStyle}
                     data-name={name}
                 />
