@@ -12,6 +12,9 @@ export type TabRowType = {
 
 export const TabRow = forwardRef<HTMLInputElement, TabRowType>(
     ({ tab }: TabRowType, ref) => <TableRow sx={{ minWidth: "10em", padding: "0.5em", height: "5em" }}>
+        <TableCell>
+            {tab.name}
+        </TableCell>
         <TabInput
             ref={ref}
             disabled={false}

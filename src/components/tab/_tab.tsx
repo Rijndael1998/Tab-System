@@ -5,10 +5,11 @@ import { Table, TableBody, TableCell, TableHead, TableRow, TableContainer, Paper
 import { Tab } from './tab.extra';
 import { stickyCellStyle } from './tab.styles';
 import { TabRow } from './tabRow';
+import { sleep } from '../util';
 
 
 class UIState {
-    // input timesheet
+    // input tab
     tab?: Tab;
 
     // ui elements
@@ -51,6 +52,20 @@ export function TabComponent() {
 
     // calculate if the object is loaded
     const loading: boolean = !(tab);
+
+    useEffect(() => {
+        (async () => {
+            await sleep(2);
+
+            console.log("sleep");
+            setTab({
+                entries: [
+                    { "name": "test", "balance": 5 },
+                    { "name": "test 2", "balance": 15 },
+                ]
+            });
+        })();
+    }, []);
 
     return <>
         <Paper sx={{ width: '100%', overflow: 'hidden', my: 3 }} elevation={1}>
