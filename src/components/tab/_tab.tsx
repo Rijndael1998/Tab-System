@@ -3,7 +3,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { Table, TableBody, TableCell, TableHead, TableRow, TableContainer, Paper, Button, FormGroup, FormControlLabel, Switch, Stack, Box } from '@mui/material';
 import { Tab } from './tab.extra';
-import { stickyCellStyle } from './tab.styles';
 import { TabRow } from './tabRow';
 import { sleep } from '../util';
 
@@ -73,8 +72,8 @@ export function TabComponent() {
                 <Table stickyHeader>
                     <TableHead>
                         <TableRow>
-                            <TableCell style={stickyCellStyle}>Name</TableCell>
-                            <TableCell style={stickyCellStyle}>Balance</TableCell>
+                            <TableCell>Name</TableCell>
+                            <TableCell>Balance</TableCell>
                             {/* <TableCell style={stickyCellStyle}>Name</TableCell> */}
                         </TableRow>
                     </TableHead>

@@ -1,7 +1,6 @@
 "use client";
 
-import { TableCell, TableRow } from "@mui/material"
-import { stickyCellStyle } from "./tab.styles"
+import { TableRow } from "@mui/material"
 import { forwardRef } from "react";
 import { TabEntry } from "./tab.extra";
 import { TabBalanceInput, TabNameInput } from "./tabInput";
