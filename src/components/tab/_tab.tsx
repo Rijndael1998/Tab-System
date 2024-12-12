@@ -2,9 +2,9 @@
 
 import React, { useEffect, useRef, useState } from 'react';
 import { Table, TableBody, TableCell, TableHead, TableRow, TableContainer, Paper, Button, FormGroup, FormControlLabel, Switch, Stack, Box } from '@mui/material';
-import { Tab } from './timesheet.extra';
-import { stickyCellStyle } from './timesheet.styles';
-import { TabRow } from './timesheetRow';
+import { Tab } from './tab.extra';
+import { stickyCellStyle } from './tab.styles';
+import { TabRow } from './tabRow';
 
 
 class UIState {

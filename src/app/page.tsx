@@ -1,4 +1,4 @@
-import { TabComponent } from "@/components/timesheet/_timesheet";
+import { TabComponent } from "@/components/tab/_tab";
 import SocketIOStatus from "./SocketIOStatus";
 import { Container, Paper, Stack } from "@mui/material";
 

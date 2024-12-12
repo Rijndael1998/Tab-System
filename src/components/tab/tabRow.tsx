@@ -1,10 +1,10 @@
 "use client";
 
 import { TableCell, TableRow } from "@mui/material"
-import { TabInput } from "./timesheetInput"
-import { stickyCellStyle } from "./timesheet.styles"
+import { TabInput } from "./tabInput"
+import { stickyCellStyle } from "./tab.styles"
 import { forwardRef } from "react";
-import { TabEntry } from "./timesheet.extra";
+import { TabEntry } from "./tab.extra";
 
 export type TabRowType = {
     tab: TabEntry,
