@@ -3,7 +3,7 @@
 import { Box, TableCell, TextField } from "@mui/material";
 import { forwardRef } from "react";
 
-export type TimesheetInputProps = {
+export type TabInputProps = {
     disabled: boolean,
     value: number,
     name: string,
@@ -11,8 +11,8 @@ export type TimesheetInputProps = {
 
 const defaultStyle = { minWidth: "6em" };
 
-export const TimesheetInput = forwardRef<HTMLInputElement, TimesheetInputProps>(
-    ({ disabled, value, name }: TimesheetInputProps, ref) => <>
+export const TabInput = forwardRef<HTMLInputElement, TabInputProps>(
+    ({ disabled, value, name }: TabInputProps, ref) => <>
         <TableCell sx={{ px: "0.25em" }}>
             {
                 disabled ? <Box sx={defaultStyle} /> : <TextField

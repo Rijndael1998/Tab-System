@@ -4,39 +4,20 @@ import React, { useEffect, useRef, useState } from 'react';
 import { Table, TableBody, TableCell, TableHead, TableRow, TableContainer, Paper, Button, FormGroup, FormControlLabel, Switch, Stack, Box } from '@mui/material';
 import { Tab } from './timesheet.extra';
 import { stickyCellStyle } from './timesheet.styles';
-import { TimesheetRow } from './timesheetRow';
-import { Random, sleep } from './../util';
+import { TabRow } from './timesheetRow';
 
 
 class UIState {
     // input timesheet
-    timesheet?: Tab;
+    tab?: Tab;
 
     // ui elements
     inputs: Array<Array<HTMLInputElement>>;
-    dayTotalCounters: Array<HTMLDivElement>;
     applyToFollowingDays = true;
 
-    constructor(timesheet?: Tab) {
+    constructor(tab?: Tab) {
         this.inputs = [];
-        this.dayTotalCounters = [];
-        this.timesheet = timesheet;
-    }
-
-    private static getDayAndProjectId(element: HTMLInputElement): [projectId: string, day: number] {
-        const datasetParentNode = element?.parentNode?.parentNode as HTMLElement;
-        const dataset = datasetParentNode.dataset;
-
-        if (!datasetParentNode || !dataset)
-            throw Error("Dataset or the correct parent is missing. Did you set this function on the right element? It should be 2 parents above the ref object (designed to be used with TextInput).");
-
-        const projectId = dataset.projectid;
-        const day = dataset.day;
-
-        if (!projectId || !day)
-            throw Error("Required elements from dataset are missing. Did you set the handle change function on the wrong element? Did you set `data-projectid` and `data-day` JSX properties?");
-
-        return [projectId, Number.parseInt(day)];
+        this.tab = tab;
     }
 
     registerInputElement(element: HTMLInputElement) {
@@ -61,8 +42,8 @@ class UIState {
     }
 }
 
-export function TimesheetComponent() {
-    // the current timesheet state.
+export function TabComponent() {
+    // the current state.
     const [tab, setTab] = useState<Tab>();
 
     // refs. nice because logic can be handled in the inputs directly an no direct rerenders occur giving it much better performance
@@ -84,7 +65,7 @@ export function TimesheetComponent() {
                     </TableHead>
                     <TableBody>
                         {!loading ? tab!.entries.map((entry, index) => {
-                            return <TimesheetRow
+                            return <TabRow
                                 ref={(element) => {
                                     if (!element)
                                         return;

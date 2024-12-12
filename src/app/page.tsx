@@ -1,4 +1,4 @@
-import { TimesheetComponent } from "@/components/timesheet/_timesheet";
+import { TabComponent } from "@/components/timesheet/_timesheet";
 import SocketIOStatus from "./SocketIOStatus";
 import { Container, Paper, Stack } from "@mui/material";
 
@@ -8,7 +8,7 @@ export default function Home() {
             <Paper>
                 <Container maxWidth="md">
                     <SocketIOStatus />
-                    <TimesheetComponent />
+                    <TabComponent />
                 </Container>
             </Paper>
         </Stack>
