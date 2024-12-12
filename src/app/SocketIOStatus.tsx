@@ -3,7 +3,7 @@
 import { socket } from "@/socket";
 import { useEffect, useState } from "react";
 
-export default function Home() {
+export default function SocketIOStatus() {
   const [isConnected, setIsConnected] = useState(false);
   const [transport, setTransport] = useState("N/A");
 
