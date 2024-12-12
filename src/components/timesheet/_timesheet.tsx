@@ -101,52 +101,5 @@ export function TimesheetComponent() {
                 </Table>
             </TableContainer>
         </Paper>
-        <FormGroup sx={{ my: 3 }}>
-            <Stack direction="row" justifyContent="space-between" alignItems="baseline" sx={{ flexWrap: "wrap", gap: "1em" }}>
-                <Stack direction="row" spacing={2} sx={{ height: "100%" }}>
-                    <Button sx={{ my: 1 }}
-                        color='error'
-                        variant="contained"
-                        size='large'
-                        onClick={() => console.log(uiState)}
-                        disabled={loading}
-                    >
-                        Reset
-                    </Button>
-
-                    <FormControlLabel
-                        control={
-                            <Switch
-                                defaultChecked={true}
-                                onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
-                                    uiState.current.applyToFollowingDays = e.target.checked;
-                                }}
-                                disabled={loading}
-                            />
-                        }
-                        label={"Apply value to following days"}
-                        sx={{ my: 1 }}
-                    />
-                </Stack>
-                <Stack direction="row" spacing={2} sx={{ height: "100%" }}>
-                    <Button sx={{ my: 1 }}
-                        color='primary'
-                        variant="contained"
-                        size='large'
-                        disabled={loading}
-                    >
-                        Save Changes
-                    </Button>
-                    <Button sx={{ my: 1 }}
-                        color='success'
-                        variant="contained"
-                        size='large'
-                        disabled={loading || true} // there's more to this component that's not implemented yet so it's perma disabled rn
-                    >
-                        Submit
-                    </Button>
-                </Stack>
-            </Stack>
-        </FormGroup>
     </>;
 };
