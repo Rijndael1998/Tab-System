@@ -20,7 +20,7 @@ export const TabInput = forwardRef<HTMLInputElement, TabInputProps>(
                     disabled={disabled}
                     type="number"
                     defaultValue={value.toFixed(2)}
-                    inputProps={{ step: 0.05, max: 1, min: 0 }}
+                    slotProps={{htmlInput: { step: 0.50 }}}
                     sx={defaultStyle}
                     data-name={name}
                 />
