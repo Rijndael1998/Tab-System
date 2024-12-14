@@ -9,8 +9,12 @@ export type TabRowType = {
     tab: TabEntry,
 }
 
-export const TabRow = forwardRef<HTMLInputElement, TabRowType>(
-    ({ tab }: TabRowType, ref) => <TableRow sx={{ minWidth: "10em", padding: "0.5em", height: "5em" }}>
+export const TabRow = forwardRef<HTMLInputElement, TabRowType>(({ tab }: TabRowType, ref) => {
+
+    const posBal = tab.balance < 0;
+
+
+    return <TableRow sx={{ minWidth: "10em", padding: "0.5em", height: "5em" }}>
         <TabNameInput
             ref={ref}
             disabled={false}
@@ -18,8 +22,8 @@ export const TabRow = forwardRef<HTMLInputElement, TabRowType>(
             name={tab.name}
         />
         <TableCell>
-            <Typography color={tab.balance < 0 ? "error" : "text"}>
-                {`£${tab.balance}`}
+            <Typography color={posBal ? "error" : "text"}>
+                {`${posBal ? "-" : ""}£${Math.abs(tab.balance)}`}
             </Typography>
         </TableCell>
         <TabBalanceInput
@@ -33,4 +37,6 @@ export const TabRow = forwardRef<HTMLInputElement, TabRowType>(
                 Apply Change
             </Button>
         </TableCell>
-    </TableRow>)
+    </TableRow>
+
+})

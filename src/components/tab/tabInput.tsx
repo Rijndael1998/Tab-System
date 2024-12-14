@@ -20,7 +20,7 @@ export const TabBalanceInput = forwardRef<HTMLInputElement, TabInputBalanceProps
                     disabled={disabled}
                     type="number"
                     defaultValue={value.toFixed(2)}
-                    slotProps={{htmlInput: { step: 0.50 }}}
+                    slotProps={{htmlInput: { step: 0.10 }}}
                     sx={defaultStyle}
                     data-name={name}
                 />

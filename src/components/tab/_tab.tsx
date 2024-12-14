@@ -5,6 +5,8 @@ import { Table, TableBody, TableCell, TableHead, TableRow, TableContainer, Paper
 import { Tab } from './tab.extra';
 import { TabRow } from './tabRow';
 import { sleep } from '../util';
+import { socket } from "@/socket";
+import { SocketEvents } from '../socket/events';
 
 
 class UIState {
@@ -38,6 +40,7 @@ class UIState {
     }
 
     updateTotals() {
+        socket.emit(SocketEvents.TabUpdate, this.tab);
         console.log("updated totals");
     }
 }
@@ -61,6 +64,7 @@ export function TabComponent() {
                 entries: [
                     { "name": "test", "balance": 5 },
                     { "name": "test 2", "balance": 15 },
+                    { "name": "test 3", "balance": -15 },
                 ]
             });
         })();
