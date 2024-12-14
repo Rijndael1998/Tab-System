@@ -66,6 +66,15 @@ export function TabComponent() {
         })();
     }, []);
 
+    useEffect(() => {
+        if(loading)
+            return;
+
+
+
+
+    }, [loading]);
+
     return <>
         <Paper sx={{ width: '100%', overflow: 'hidden', my: 3 }} elevation={1}>
             <TableContainer>
@@ -74,7 +83,8 @@ export function TabComponent() {
                         <TableRow>
                             <TableCell>Name</TableCell>
                             <TableCell>Balance</TableCell>
-                            {/* <TableCell style={stickyCellStyle}>Name</TableCell> */}
+                            <TableCell>Change</TableCell>
+                            <TableCell></TableCell>
                         </TableRow>
                     </TableHead>
                     <TableBody>

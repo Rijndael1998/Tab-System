@@ -1,6 +1,6 @@
 "use client";
 
-import { TableRow } from "@mui/material"
+import { Button, TableCell, TableRow, Typography } from "@mui/material"
 import { forwardRef } from "react";
 import { TabEntry } from "./tab.extra";
 import { TabBalanceInput, TabNameInput } from "./tabInput";
@@ -17,10 +17,20 @@ export const TabRow = forwardRef<HTMLInputElement, TabRowType>(
             value={tab.name}
             name={tab.name}
         />
+        <TableCell>
+            <Typography color={tab.balance < 0 ? "error" : "text"}>
+                {`£${tab.balance}`}
+            </Typography>
+        </TableCell>
         <TabBalanceInput
             ref={ref}
             disabled={false}
-            value={tab.balance}
+            value={0}
             name={tab.name}
         />
+        <TableCell>
+            <Button>
+                Apply Change
+            </Button>
+        </TableCell>
     </TableRow>)
