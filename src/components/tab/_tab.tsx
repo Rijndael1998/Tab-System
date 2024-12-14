@@ -53,7 +53,7 @@ export function TabComponent() {
     const uiState = useRef<UIState>(new UIState(tab));
 
     // calculate if the object is loaded
-    const loading: boolean = !(tab);
+    const loading: boolean = !(tab && socket.connected);
 
     useEffect(() => {
         (async () => {
@@ -74,9 +74,14 @@ export function TabComponent() {
         if(loading)
             return;
 
+        socket.on(SocketEvents.TabUpdate, (e) => {
+            console.log("new tab update", e);
+        });
 
 
-
+        return () => {
+            
+        }
     }, [loading]);
 
     return <>
@@ -92,14 +97,8 @@ export function TabComponent() {
                         </TableRow>
                     </TableHead>
                     <TableBody>
-                        {!loading ? tab!.entries.map((entry, index) => {
+                        {!loading ? tab!.entries.map((entry) => {
                             return <TabRow
-                                ref={(element) => {
-                                    if (!element)
-                                        return;
-
-                                    uiState.current.registerInputElement(element);
-                                }}
                                 key={entry.name}
                                 tab={entry}
                             />

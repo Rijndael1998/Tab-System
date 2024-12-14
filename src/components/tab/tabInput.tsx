@@ -16,7 +16,6 @@ export const TabBalanceInput = forwardRef<HTMLInputElement, TabInputBalanceProps
         <TableCell sx={{ px: "0.25em" }}>
             {
                 disabled ? <Box sx={defaultStyle} /> : <TextField
-                    inputRef={ref}
                     disabled={disabled}
                     type="number"
                     defaultValue={value.toFixed(2)}
@@ -39,7 +38,6 @@ export const TabNameInput = forwardRef<HTMLInputElement, TabInputNameProps>(
         <TableCell sx={{ px: "0.25em" }}>
             {
                 disabled ? <Box sx={defaultStyle} /> : <TextField
-                    inputRef={ref}
                     disabled={disabled}
                     type="text"
                     defaultValue={value}
